@@ -11,6 +11,7 @@ import workflowRouter from "./routes/workflow.routes.js";
 
 const app = express();
 await connectToDatabase();
+const port = process.env.PORT || PORT;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -31,7 +32,7 @@ app.get('/',async (req, res) => {
     res.send('Welcome to subscription tracking APIs')
 })
 
-app.listen(PORT, () => console.log(`server running on port http://localhost:${PORT}!`))
+app.listen(port, () => console.log(`server running on port http://localhost:${PORT}!`))
 
 export default app;
 
